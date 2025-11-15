@@ -1,5 +1,64 @@
 @import "tailwindcss";
 
+/* 🌈 Pastel Gradient Background */
+:root {
+  --foreground: #2a2a2a; /* dark gray text */
+  --glass-bg: rgba(255, 255, 255, 0.2); /* semi-transparent glass */
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    #ffe6f2 0%,   /* pastel pink */
+    #f5e8ff 40%,  /* lavender */
+    #e6f2ff 100%  /* baby blue */
+  );
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Glass effect utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for glass panels */
+.glass:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Pastel colors */
+.bg-cream { background-color: #fff5e6; }
+.bg-lavender { background-color: #e6e6fa; }
+.bg-mint { background-color: #d4f1f4; }
+.text-gray700 { color: #4a4a4a; }
+.text-gray900 { color: #1a1a1a; }
+
+
+
+
+
+
+
+
+
+
+
+/* This code has been moved to app/globals.css in the main project
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,3 +83,60 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-light text-dark font-sans;
+}
+
+
+.card-hover {
+  @apply transition-transform duration-300 ease-in-out hover:scale-105;
+}
+
+
+.float {
+  @apply animate-float;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+:root {
+  --peach: #FFD6A5;
+  --mint: #CAFFBF;
+  --lavender: #D7B2FF;
+  --sky: #CDF0FF;
+  --butter: #FDFFB6;
+  --cream: #FFF8F3;
+
+  --gray500: #6b6b6b;
+  --gray600: #555555;
+  --gray700: #333333;
+  --gray800: #1a1a1a;
+}
+
+.bg-peach { background-color: var(--peach); }
+.bg-mint { background-color: var(--mint); }
+.bg-lavender { background-color: var(--lavender); }
+.bg-sky { background-color: var(--sky); }
+.bg-butter { background-color: var(--butter); }
+.bg-cream { background-color: var(--cream); }
+
+.border-peach { border-color: var(--peach); }
+.border-mint { border-color: var(--mint); }
+
+.text-gray500 { color: var(--gray500); }
+.text-gray600 { color: var(--gray600); }
+.text-gray700 { color: var(--gray700); }
+.text-gray800 { color: var(--gray800); }
+*/

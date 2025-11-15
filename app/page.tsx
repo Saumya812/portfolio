@@ -1,3 +1,27 @@
+import HeroSection from "@/components/HeroSection";
+
+export default function Home() {
+  return (
+    <div>
+      <HeroSection />
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* // previous code which was in portfolio/app/page.tsx has been ignored as per user instruction
 import Image from "next/image";
 
 export default function Home() {
@@ -63,3 +87,4 @@ export default function Home() {
     </div>
   );
 }
+*/

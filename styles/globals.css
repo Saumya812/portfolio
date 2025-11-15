@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Body defaults */
+body {
+  @apply bg-softWhite text-gray500 font-sans;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-charcoal;
+}
+
+/* Links */
+a {
+  @apply text-lavender hover:text-peach transition-colors;
+}
+
+/* Buttons */
+.button {
+  @apply px-6 py-3 rounded-lg text-gray500 bg-lavender hover:bg-peach transition-colors;
+}
+
+/* Cards */
+.card {
+  @apply bg-powderBlue rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105;
+}
+
+/* Floating animation */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Fade-in animation */
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Pastel colors */
+.bg-cream { background-color: #fff5e6; }
+.bg-lavender { background-color: #e6e6fa; }
+.bg-mint { background-color: #d4f1f4; }
+.text-gray700 { color: #4a4a4a; }
+.text-gray900 { color: #1a1a1a; }

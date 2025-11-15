@@ -1,4 +1,39 @@
-import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export const metadata = {
+  title: "Saumya Portfolio",
+  description: "Creative CS Portfolio by Saumya Brahmbhatt",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="bg-[#fdf8ff] text-gray-800">
+        <Navbar />
+        <main className="pt-24">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// second layout file which was in portfolio/app/layout.tsx has been ignored as per user instruction
+/*import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -32,3 +67,4 @@ export default function RootLayout({
     </html>
   );
 }
+  */
