@@ -33,7 +33,7 @@ export default function ProjectsPage() {
       title: "ScholarSnap",
       slug: "scholarsnap",
       description: "AI paper summarizer using OCR and NLP.",
-      imageUrl: "/images/PhysicsResearch.JPEG", // change the image link
+      imageUrl: "/images/ScholarSnap_2.png", 
       link: "/projects/ScholarSnap",
     },
     {

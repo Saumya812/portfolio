@@ -18,6 +18,11 @@ export default function Broke2BrokerPage() {
         <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700">
           Turning financial literacy into financial freedom. Personalized financial plans, investing guidance, and interactive education — all in one platform.
         </p>
+
+        {/* ---------------- AWARD / RECOGNITION ---------------- */}
+        <div className="mt-4 inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg font-medium text-sm shadow-sm">
+          🏆 4th Place – Alex and Brown Center for Entrepreneurship & Innovation 2025, Technology & Innovation Track
+        </div>
       </motion.section>
 
       {/* ---------------- HERO IMAGE ---------------- */}
@@ -46,7 +51,7 @@ export default function Broke2BrokerPage() {
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center">Key Features</h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {[
+          {[ 
             {
               title: "Personalized Financial Plan",
               desc: "Enter your financial history and goals to get a clear, actionable plan including debt payoff and 5-year net-worth projections."
@@ -98,36 +103,35 @@ export default function Broke2BrokerPage() {
       </motion.section>
 
       {/* ---------------- TECH STACK ---------------- */}
-<motion.section
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  className="space-y-8"
->
-  <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900">Tech Stack</h2>
-
-  <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-    {[
-      { name: "React", desc: "Component-based frontend library for building dynamic UIs." },
-      { name: "Next.js", desc: "Framework for server-side rendering and static site generation." },
-      { name: "Tailwind CSS", desc: "Utility-first CSS framework for responsive design." },
-      { name: "OpenAI API", desc: "Generative AI for personalized financial guidance." },
-      { name: "Yahoo Finance API", desc: "Real-time stock and financial data integration." },
-      { name: "Chart.js", desc: "Interactive charts for visualizing investments." },
-      { name: "Framer Motion", desc: "Smooth animations and interactive UI effects." },
-      { name: "Firebase", desc: "Authentication and backend services for user data." },
-    ].map((tech, i) => (
-      <motion.div
-        key={i}
-        whileHover={{ scale: 1.03, y: -2 }}
-        className="p-5 bg-white rounded-xl shadow-md border border-gray-200 transition-all hover:shadow-lg"
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="space-y-8"
       >
-        <h3 className="text-xl font-semibold text-gray-800">{tech.name}</h3>
-        <p className="text-gray-600 mt-2 text-sm">{tech.desc}</p>
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900">Tech Stack</h2>
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {[
+            { name: "React", desc: "Component-based frontend library for building dynamic UIs." },
+            { name: "Next.js", desc: "Framework for server-side rendering and static site generation." },
+            { name: "Tailwind CSS", desc: "Utility-first CSS framework for responsive design." },
+            { name: "OpenAI API", desc: "Generative AI for personalized financial guidance." },
+            { name: "Yahoo Finance API", desc: "Real-time stock and financial data integration." },
+            { name: "Chart.js", desc: "Interactive charts for visualizing investments." },
+            { name: "Framer Motion", desc: "Smooth animations and interactive UI effects." },
+            { name: "Firebase", desc: "Authentication and backend services for user data." },
+          ].map((tech, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03, y: -2 }}
+              className="p-5 bg-white rounded-xl shadow-md border border-gray-200 transition-all hover:shadow-lg"
+            >
+              <h3 className="text-xl font-semibold text-gray-800">{tech.name}</h3>
+              <p className="text-gray-600 mt-2 text-sm">{tech.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* ---------------- CALL TO ACTION ---------------- */}
       <motion.div
