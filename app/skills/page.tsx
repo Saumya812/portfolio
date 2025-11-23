@@ -6,10 +6,11 @@ export default function SkillsSection() {
   const skillCategories = {
     "Programming Languages": [
       "Python",
-      "C++",
+      "C/C++",
       "Java",
       "JavaScript",
       "TypeScript",
+      "MATLAB",
     ],
     "AI & Machine Learning": [
       "Machine Learning",
@@ -30,12 +31,10 @@ export default function SkillsSection() {
     Tools: [
       "Git & GitHub",
       "VS Code",
-      "Linux CLI",
-      "Postman",
       "Firebase",
       "Figma",
     ],
-    "Data & Cloud": ["SQL", "MongoDB", "AWS Basics", "Data Visualization"],
+    "Data & Cloud": ["SQL",  "Data Visualization"],
   };
 
   return (

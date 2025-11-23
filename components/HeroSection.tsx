@@ -14,7 +14,7 @@ export default function HeroSection() {
       </h1>
 
       <p className="text-gray500 text-xl md:text-2xl mb-8">
-        CS Student | AI/ML Enthusiast | Creator of Interactive Web Experiences
+        CS Student | AI/ML Enthusiast | Building Smart, Human-Centered Technology
       </p>
 
       {/* PROFESSIONAL GLOW BUTTON */}

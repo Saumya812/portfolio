@@ -69,10 +69,10 @@ export default function SlidingPuzzlePage() {
 
             <h3 className="text-xl font-semibold text-black">Build and Run</h3>
             <pre className="bg-black text-white rounded-md p-4 overflow-x-auto">
-{`git clone https://github.com/yourusername/sliding-puzzle.git
-cd sliding-puzzle
-g++ main.cpp SlidingPuzzle.cpp -o SlidingPuzzle.exe
-SlidingPuzzle.exe`}
+            {`git clone https://github.com/yourusername/sliding-puzzle.git
+            cd sliding-puzzle
+            g++ main.cpp SlidingPuzzle.cpp -o SlidingPuzzle.exe
+            SlidingPuzzle.exe`}
             </pre>
           </div>
         </motion.section>
@@ -88,11 +88,11 @@ SlidingPuzzle.exe`}
           <div className="bg-white/70 backdrop-blur-xl rounded-xl p-6 shadow-md text-black">
             <p>Move tiles using the following keys:</p>
             <pre className="bg-black text-white rounded-md p-4 overflow-x-auto">
-{`W → UP
-A → LEFT
-S → DOWN
-D → RIGHT
-Q → Quit the game`}
+            {`W → UP
+            A → LEFT
+            S → DOWN
+            D → RIGHT
+            Q → Quit the game`}
             </pre>
             <p>Tiles slide into the empty space (*) if the move is valid. The board is solved when all numbers are in ascending order, ending with the empty space.</p>
           </div>
@@ -107,14 +107,14 @@ Q → Quit the game`}
         >
           <h2 className="text-4xl font-bold text-black text-center">Project Structure</h2>
           <pre className="bg-white/70 backdrop-blur-xl text-black rounded-xl p-6 overflow-x-auto">
-{`sliding-puzzle/
-├── main.cpp         # Main program with user interaction and game loop
-├── SlidingPuzzle.h  # Class declaration
-├── SlidingPuzzle.cpp# Class implementation
-├── README.md        # Project documentation
-├── LICENSE          # License information
-└── .gitignore       # Ignored files and folders`}
-          </pre>
+        {`sliding-puzzle/
+        ├── main.cpp         # Main program with user interaction and game loop
+        ├── SlidingPuzzle.h  # Class declaration
+        ├── SlidingPuzzle.cpp# Class implementation
+        ├── README.md        # Project documentation
+        ├── LICENSE          # License information
+        └── .gitignore       # Ignored files and folders`}
+                </pre>
         </motion.section>
 
         {/* AUTHOR */}

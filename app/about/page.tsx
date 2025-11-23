@@ -18,12 +18,12 @@ export default function AboutPage() {
 
   useEffect(() => {
     const generated: Bubble[] = Array.from({ length: 25 }).map(() => {
-      const size = 20 + Math.random() * 50; // size between 20px and 70px
+      const size = 20 + Math.random() * 50;
       return {
         size,
-        top: `${Math.random() * 100}%`, // anywhere from top to bottom
-        left: `${Math.random() * 100}%`, // anywhere from left to right
-        duration: 10 + Math.random() * 10, // duration 10-20s
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        duration: 10 + Math.random() * 10,
         delay: Math.random() * 5,
       };
     });
@@ -35,45 +35,50 @@ export default function AboutPage() {
 
       {/* Floating Bubbles */}
       {bubbles.map((b, idx) => (
-  <motion.div
-    key={idx}
-    className="absolute rounded-full bg-indigo-300 opacity-30"
-    style={{
-      width: b.size,
-      height: b.size,
-      top: `calc(${b.top} - ${b.size / 2}px)`,
-      left: `calc(${b.left} - ${b.size / 2}px)`,
-    }}
-    animate={{
-      y: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
-      x: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
-    }}
-    transition={{
-      repeat: Infinity,
-      duration: b.duration,
-      ease: "easeInOut",
-      delay: b.delay,
-    }}
-  />
-))}
-
+        <motion.div
+          key={idx}
+          className="absolute rounded-full bg-indigo-300 opacity-30"
+          style={{
+            width: b.size,
+            height: b.size,
+            top: `calc(${b.top} - ${b.size / 2}px)`,
+            left: `calc(${b.left} - ${b.size / 2}px)`,
+          }}
+          animate={{
+            y: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
+            x: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: b.duration,
+            ease: "easeInOut",
+            delay: b.delay,
+          }}
+        />
+      ))}
 
       {/* Text Section */}
       <div className="lg:w-2/3 space-y-6 z-10">
         <h1 className="text-5xl font-extrabold text-black">About Me</h1>
 
         <p className="text-black text-lg leading-relaxed">
-          Hello! I'm <strong>Saumya Brahmbhatt</strong>, a passionate Computer Science student specializing 
-          in Artificial Intelligence and Machine Learning. I enjoy creating software that blends creativity with practical problem-solving.
+          Hello! I'm <strong>Saumya Brahmbhatt</strong>, a Computer Science student
+          specializing in Artificial Intelligence and Machine Learning. I love building
+          intelligent systems that merge creativity with practical, real-world problem-solving.
         </p>
 
         <p className="text-black text-lg leading-relaxed">
-          My projects and explorations are driven by curiosity and the desire to make technology more accessible 
-          and impactful. From building AI-driven financial tools like <strong>Broke2Broker</strong> to innovative 
-          games and research experiments, I aim to turn ideas into real-world solutions.  
+          I completed my <strong>A.S. in Computer Science with High Honors</strong> from
+          Harford Community College, and I am currently part of the 
+          <strong> Honors College at UMBC</strong> pursuing my B.S. in Computer Science.
         </p>
 
-        <p className="text-black italic">“Innovation is the intersection of creativity and logic.”</p>
+        <p className="text-black text-lg leading-relaxed">
+          My work explores AI research, simulations, interactive applications, and creative computing—
+          always with the goal of making technology more intuitive, human-centered, and impactful.
+        </p>
+
+        <p className="text-black italic">“Innovation happens where creativity meets logic.”</p>
       </div>
 
       {/* Image Section */}
@@ -84,10 +89,10 @@ export default function AboutPage() {
           transition={{ type: "spring", stiffness: 150 }}
         >
           <Image
-            src="/images/profile.JPG" 
+            src="/images/profile.JPG"
             alt="Saumya Brahmbhatt"
-            width={400}          // set a width
-            height={400}         // set a height
+            width={400}
+            height={400}
             className="w-full h-full object-cover"
           />
         </motion.div>

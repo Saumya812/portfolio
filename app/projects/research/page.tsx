@@ -180,7 +180,7 @@ export default function ResearchPage() {
         </h1>
         <p className="mt-3 text-lg max-w-3xl text-gray-700">
           MATLAB ode45 simulations + PASCO experimental automation. Presented at the Maryland 
-          Collegiate STEM Conference (2025).
+          Collegiate STEM Conference (2024).
         </p>
       </motion.div>
 
@@ -198,8 +198,7 @@ export default function ResearchPage() {
           <ul className="list-disc ml-5 text-gray-700 mt-2">
             <li>MATLAB (ode45)</li>
             <li>PASCO Capstone sensor automation</li>
-            <li>Data analysis: Excel + Python</li>
-            <li>Next.js interactive visualization</li>
+            <li>Data analysis: Excel </li>
           </ul>
 
           <h3 className="mt-4 font-medium">Key Results</h3>
