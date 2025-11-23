@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from 'next/image';
+import profile from '../../public/images/profile.jpg';
 
 interface Bubble {
   size: number;
@@ -33,22 +35,28 @@ export default function AboutPage() {
 
       {/* Floating Bubbles */}
       {bubbles.map((b, idx) => (
-        <motion.div
-          key={idx}
-          className="absolute rounded-full bg-indigo-300 opacity-30"
-          style={{ width: b.size, height: b.size, top: b.top, left: b.left }}
-          animate={{
-            y: ["0%", `${Math.random() * 20 - 10}%`, "0%"], // small vertical float
-            x: ["0%", `${Math.random() * 20 - 10}%`, "0%"], // small horizontal float
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: b.duration,
-            ease: "easeInOut",
-            delay: b.delay,
-          }}
-        />
-      ))}
+  <motion.div
+    key={idx}
+    className="absolute rounded-full bg-indigo-300 opacity-30"
+    style={{
+      width: b.size,
+      height: b.size,
+      top: `calc(${b.top} - ${b.size / 2}px)`,
+      left: `calc(${b.left} - ${b.size / 2}px)`,
+    }}
+    animate={{
+      y: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
+      x: ["0%", `${Math.random() * 20 - 10}%`, "0%"],
+    }}
+    transition={{
+      repeat: Infinity,
+      duration: b.duration,
+      ease: "easeInOut",
+      delay: b.delay,
+    }}
+  />
+))}
+
 
       {/* Text Section */}
       <div className="lg:w-2/3 space-y-6 z-10">
@@ -75,9 +83,11 @@ export default function AboutPage() {
           whileHover={{ scale: 1.05, rotate: 1 }}
           transition={{ type: "spring", stiffness: 150 }}
         >
-          <img
-            src="/images/your-photo.jpg" // replace with your actual image path
+          <Image
+            src="/images/profile.JPG" 
             alt="Saumya Brahmbhatt"
+            width={400}          // set a width
+            height={400}         // set a height
             className="w-full h-full object-cover"
           />
         </motion.div>

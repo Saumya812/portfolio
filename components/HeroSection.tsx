@@ -1,21 +1,47 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 export default function HeroSection() {
+  const router = useRouter();
+
   return (
     <section className="flex flex-col items-center justify-center text-center py-32 bg-gradient-to-r from-lavender via-powderBlue to-mint rounded-xl">
-      <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 text-transparent bg-clip-text animate-fadeIn">
+      
+      <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 text-transparent bg-clip-text">
         Hi, I'm Saumya Brahmbhatt
       </h1>
-      <p className="text-gray500 text-xl md:text-2xl mb-8 animate-fadeIn">
+
+      <p className="text-gray500 text-xl md:text-2xl mb-8">
         CS Student | AI/ML Enthusiast | Creator of Interactive Web Experiences
       </p>
-      <a
-        href="#projects"
-        className="px-6 py-3 bg-peach text-gray500 rounded-full relative hover:bg-lavender transition-colors shadow-md hover:shadow-lg">
-        <span className="relative z-10">See My Work</span>
-        <span className="absolute top-1/2 left-1/2 w-0 h-0 rounded-full opacity-50 bg-mint transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 hover:w-40 hover:h-40 pointer-events-none"></span>
-      </a>
+
+      {/* PROFESSIONAL GLOW BUTTON */}
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={() => router.push("/projects")}
+        className="
+          relative px-8 py-3 font-medium rounded-full text-white 
+          bg-gray-700 shadow-md overflow-visible group transition-all duration-300
+          hover:bg-gray-800
+        "
+      >
+        <span className="relative z-20">See My Work</span>
+
+        {/* Subtle glow on hover */}
+        <span className="
+          absolute inset-0 rounded-full bg-white/10 blur-xl scale-0 
+          group-hover:scale-105 transition-all duration-500">
+        </span>
+      </motion.button>
     </section>
   );
 }
+
+
+
+
 
 
 /*

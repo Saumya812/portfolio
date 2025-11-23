@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ProjectCard({ title, description, imageUrl, link, reverse }: any) {
+export default function ProjectCard({ title, description, imageUrl, slug, reverse }: any) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
@@ -37,7 +37,9 @@ export default function ProjectCard({ title, description, imageUrl, link, revers
           {title}
         </h3>
         <p className="text-gray-700 mb-4">{description}</p>
-        <Link href={link}>
+
+        {/* Dynamic Route Link */}
+        <Link href={`/projects/${slug}`}>
           <button className="px-5 py-2 bg-gray-200 text-gray-900 rounded-full border border-gray-400 hover:bg-gray-300 transition-all">
             View Project →
           </button>

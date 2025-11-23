@@ -4,6 +4,18 @@ import { motion } from "framer-motion";
 
 export default function ExperienceSection() {
   const experiences = [
+
+    {
+      title: "Undergrad Research Engineer – BizChat",
+      company: "University of Maryland, Balitmore County",
+      date: "Sept 2025 – Present",
+      bullets: [
+        "Built a web app helping small business owners create business plans informed by 4 workshops and 15 interviews.",
+        "Applied HCI-driven design to improve accessibility 40% and reduce drafting time 60%.",
+        "Integrated GPT-4 Turbo and Whisper-1 for real-time, section-level business plan generation (< 2s latency).",
+      ],
+    },
+
     {
       title: "Teaching Fellow – Social / Ethnic Issues in IT",
       company: "University of Maryland, Baltimore County",
@@ -32,16 +44,6 @@ export default function ExperienceSection() {
       bullets: [
         "Assisted 200+ students in programming C/C++, Java, Physics, Chemistry, and Math.",
         "Supported the Learning Center and promoted CRLA Certification Training.",
-      ],
-    },
-    {
-      title: "Undergrad Research Engineer – BizChat",
-      company: "Personal / University Project",
-      date: "Sept 2025 – Present",
-      bullets: [
-        "Built a web app helping small business owners create business plans informed by 4 workshops and 15 interviews.",
-        "Applied HCI-driven design to improve accessibility 40% and reduce drafting time 60%.",
-        "Integrated GPT-4 Turbo and Whisper-1 for real-time, section-level business plan generation (< 2s latency).",
       ],
     },
   ];

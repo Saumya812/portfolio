@@ -43,6 +43,9 @@ body {
 .text-gray900 { color: #1a1a1a; }
 
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 

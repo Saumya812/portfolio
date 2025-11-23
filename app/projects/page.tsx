@@ -7,27 +7,41 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "BizChat",
+      slug: "bizchat",
       description: "LLM-powered business plan assistant.",
-      imageUrl: "/images/bizchat.png",
-      link: "#",
+      imageUrl: "/images/Bizchat_IMG.png"
     },
+
     {
       title: "Broke2Broker",
+      slug: "broke2broker",
       description: "HackUMBC2025: AI-driven financial mentorship platform.",
-      imageUrl: "/images/bizchat.png",
-      link: "#",
+      imageUrl: "/images/B2B.jpeg",
+      link: "/projects/broke2broker",
     },
+
+    {
+    title: "1D Falling Disks Research",
+    slug: "research",
+    description:
+      "Numerical & experimental study of 1D falling disks with air resistance. Presented at the 10th Annual Maryland Collegiate STEM Conference. Built MATLAB simulations (ode45), engineered automated PASCO system with 99% accuracy, and analyzed drag-force behavior with <5% computational error.",
+    imageUrl: "/images/PhysicsResearch.JPEG", // put an image in public/images
+    link: "/projects/research",
+    },
+
     {
       title: "ScholarSnap",
+      slug: "scholarsnap",
       description: "AI paper summarizer using OCR and NLP.",
-      imageUrl: "/images/scholarsnap.png",
-      link: "#",
+      imageUrl: "/images/PhysicsResearch.JPEG", // change the image link
+      link: "/projects/ScholarSnap",
     },
     {
       title: "Sliding Puzzle",
+      slug: "sliding-puzzle",
       description: "NxM puzzle game with C++ and Windows API.",
-      imageUrl: "/images/sliding-puzzle.png",
-      link: "#",
+      imageUrl: "/images/SlidingPuzzle.png",
+      link: "/projects/sliding-puzzle",
     },
   ];
 
@@ -68,6 +82,7 @@ export default function ProjectsPage() {
                   description={project.description}
                   imageUrl={project.imageUrl}
                   link={project.link}
+                  slug={project.slug} 
                 />
               </motion.div>
             </motion.div>

@@ -7,18 +7,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav 
-      className="
-        w-full fixed top-0 z-50 
-        bg-white/40 backdrop-blur-xl 
-        border-b border-black/10
-      "
-    >
+    <nav className="w-full fixed top-0 z-50 bg-white/40 backdrop-blur-xl border-b border-black/10">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="text-xl font-bold text-gray-900 tracking-wide hover:text-pink-700 transition-all duration-300"
         >
           Saumya Brahmbhatt
@@ -32,7 +26,7 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Nav Links (NO BORDERS ANYMORE) */}
+        {/* Nav Links */}
         <div
           className={`
             md:flex gap-6 md:items-center
@@ -50,6 +44,7 @@ export default function Navbar() {
             ["Skills", "/skills"],
             ["Creative", "/creative"],
             ["Contact", "/contact"],
+            ["Resume", "/Resume/Resume.pdf"], 
           ].map(([label, url], i) => (
             <Link
               key={i}
@@ -63,12 +58,13 @@ export default function Navbar() {
                 hover:shadow-[0_0_12px_rgba(255,160,200,0.4)]
                 active:scale-95
               "
+              target={label === "Resume" ? "_blank" : undefined}
+              rel={label === "Resume" ? "noopener noreferrer" : undefined}
             >
               {label}
             </Link>
           ))}
         </div>
-
       </div>
     </nav>
   );
