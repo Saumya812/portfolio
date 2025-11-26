@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Saumya Portfolio",
-  description: "Creative CS Portfolio by Saumya Brahmbhatt",
+  description: "Portfolio by Saumya Brahmbhatt",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

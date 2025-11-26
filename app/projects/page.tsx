@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       title: "Broke2Broker",
       slug: "broke2broker",
       description: "HackUMBC2025: AI-driven financial mentorship platform.",
-      imageUrl: "/images/B2B.jpeg",
+      imageUrl: "/images/budget2broker.png",
       link: "/projects/broke2broker",
     },
 
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
     slug: "research",
     description:
       "Numerical & experimental study of 1D falling disks with air resistance. Presented at the 10th Annual Maryland Collegiate STEM Conference. Built MATLAB simulations (ode45), engineered automated PASCO system with 99% accuracy, and analyzed drag-force behavior with <5% computational error.",
-    imageUrl: "/images/PhysicsResearch.JPEG", // put an image in public/images
+    imageUrl: "/images/PhysicsResearch.jpeg",
     link: "/projects/research",
     },
 

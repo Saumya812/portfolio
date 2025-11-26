@@ -33,7 +33,7 @@ export default function Broke2BrokerPage() {
         className="relative"
       >
         <img
-          src="/images/B2B.jpeg"
+          src="/images/budget2broker.png"
           alt="Budget2Broker"
           className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-lg"
         />
