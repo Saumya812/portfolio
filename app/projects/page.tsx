@@ -13,7 +13,7 @@ export default function ProjectsPage() {
     },
 
     {
-      title: "Broke2Broker",
+      title: "Budget2Broker",
       slug: "broke2broker",
       description: "HackUMBC2025: AI-driven financial mentorship platform.",
       imageUrl: "/images/budget2broker.png",
@@ -66,10 +66,7 @@ export default function ProjectsPage() {
                 isLeft ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
-              {/* Timeline marker */}
-              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full shadow-lg -ml-6 md:ml-0">
-                <div className="w-3 h-3 bg-white rounded-full"></div>
-              </div>
+              
 
               {/* Project Card */}
               <motion.div

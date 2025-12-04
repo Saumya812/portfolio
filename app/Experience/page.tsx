@@ -70,9 +70,7 @@ export default function ExperienceSection() {
               }`}
             >
               {/* Circle Timeline Marker */}
-              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full shadow-lg -ml-6 md:ml-0">
-                <div className="w-3 h-3 bg-white rounded-full"></div>
-              </div>
+              
 
               {/* Card */}
               <motion.div
@@ -95,6 +93,7 @@ export default function ExperienceSection() {
       </div>
 
       {/* Skills Highlight */}
+      {/*
       <div className="mt-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
           Key Skills
@@ -114,6 +113,7 @@ export default function ExperienceSection() {
           )}
         </div>
       </div>
+      */}
     </div>
   );
 }
