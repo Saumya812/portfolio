@@ -15,7 +15,7 @@ export default function GCSPPage() {
       summary:
         "Developed a platform providing students and young professionals with personalized investment guidance, interactive mentorship, and real-time market insights.",
       reflection:
-        "Reflection: Directly aligns with GCSP learning objectives by combining research, entrepreneurship, service, interdisciplinary thinking, and global perspective.",
+        "Reflection: I chose Personalized Learning Experience as my Grand Challenge because I believe education is most effective when it adapts to each learner. My project, Budget2Broker, puts this into practice by offering personalized financial plans, interactive tools, and AI-guided lessons to make financial literacy approachable—a skill often missing in traditional education. Working on it taught me that personalization is about empathy: understanding users, making complex ideas clear, and designing for confidence. GCSP helped me grow as a designer and problem solver, and inspired me to expand Budget2Broker with adaptive learning and more inclusive content, so it can truly empower people to understand and take control of their finances."
     },
     {
       title: "BizChat & Other AI Projects",
@@ -74,7 +74,7 @@ export default function GCSPPage() {
       >
         <h2 className="text-3xl font-semibold text-gray-800">Chosen Grand Challenge</h2>
         <p>
-          <strong>Advancing Personalized Learning:</strong> I chose this Grand Challenge because personalized education and financial literacy are critical for empowering young adults. By leveraging AI, I aim to provide students and young professionals with tailored guidance and resources to make informed financial and educational decisions.
+          <strong>Advancing Personalized Learning:</strong> I chose this Grand Challenge because I believe that learning should adapt to the needs, goals, and strengths of each individual. Personalized education and financial literacy are critical for empowering young adults to make informed decisions and take control of their futures. This challenge aligns with my passion for using technology and innovation to create tools and experiences that support people’s growth, help them navigate complex information, and build confidence in their abilities. It reflects my broader vision of making learning more meaningful, accessible, and human-centered.
         </p>
       </motion.div>
 
@@ -88,7 +88,7 @@ export default function GCSPPage() {
       >
         <h2 className="text-3xl font-semibold text-gray-800">Motivation</h2>
         <p>
-          Participating in the GCSP merges technical innovation with societal impact. It allows me to explore interdisciplinary approaches, lead technology-driven initiatives, and develop solutions that positively affect communities. I aim to build skills in research, ethical leadership, teamwork, and global perspectives while applying creative and innovative approaches to complex societal challenges.
+          Participating in GCSP excites me because it combines technical innovation with the opportunity to make a real societal impact. I am motivated by the chance to explore interdisciplinary approaches, collaborate with peers from diverse backgrounds, and develop solutions that address pressing challenges in education and beyond. The program also offers invaluable mentorship and opportunities to learn from experienced professionals, which I see as a critical step in shaping my growth as a thinker, leader, and problem-solver. Through GCSP, I hope to build skills in research, ethical decision-making, teamwork, and global perspectives, while gaining guidance and connections that will help me create learning experiences and tools that empower others, foster curiosity, and help people reach their full potential.
         </p>
       </motion.div>
 
