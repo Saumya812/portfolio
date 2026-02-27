@@ -20,9 +20,19 @@ export default function Broke2BrokerPage() {
         </p>
 
         {/* ---------------- AWARD / RECOGNITION ---------------- */}
-        <div className="mt-4 inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg font-medium text-sm shadow-sm">
-          🏆 4th Place – Alex and Brown Center for Entrepreneurship & Innovation 2025, Technology & Innovation Track
-        </div>
+      
+
+        <div className="mt-4 inline-flex flex-col sm:flex-row gap-3 justify-center items-center">
+ <div className="mt-4 flex flex-col items-center gap-3">
+  <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg font-medium text-sm shadow-sm">
+    🏆 4th Place – Alex and Brown Center for Entrepreneurship & Innovation 2025, Technology & Innovation Track
+  </div>
+  <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-lg font-medium text-sm shadow-sm">
+    🌍 Presented at GCSP International Conference – Sapienza University, Rome, Italy · Feb 2026
+  </div>
+</div>
+</div>
+
       </motion.section>
 
       {/* ---------------- HERO IMAGE ---------------- */}
