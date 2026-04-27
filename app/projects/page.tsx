@@ -6,6 +6,22 @@ import ProjectCard from '../../components/ProjectCard';
 export default function ProjectsPage() {
   const projects = [
     {
+      title: "Acta-AI",
+      slug: "acta-ai",
+      description: "HackPrinceton'26: Full-stack multi-agent contract intelligence for Clinical Trial Agreements",
+      imageUrl: "/images/Acta.png",
+      link: "/projects/acta-ai",
+    },
+
+    {
+      title: "CommunityVoice",
+      slug: "communityvoice",
+      description: "HackUMBC2025: AI-powered community intake and resource allocation platform for Non-porfit organization.",
+      imageUrl: "/images/CommunityVoice.png",
+      link: "/projects/communityvoice",
+    },
+
+    {
       title: "BizChat",
       slug: "bizchat",
       description: "LLM-powered business plan assistant.",
@@ -16,7 +32,7 @@ export default function ProjectsPage() {
       title: "Budget2Broker",
       slug: "broke2broker",
       description: "HackUMBC2025: AI-driven financial mentorship platform.",
-      imageUrl: "/images/budget2broker.png",
+      imageUrl: "/images/FinMentor.png",
       link: "/projects/broke2broker",
     },
 

@@ -7,15 +7,19 @@ import Image from "next/image";
 const highlights = [
   { icon: "🎓", label: "UMBC Honors College" },
   { icon: "🤖", label: "AI & ML Specialization" },
+  { icon: "⚛", label: "Qauntum Computing" },
   { icon: "🏆", label: "Graduated High Honors" },
   { icon: "📍", label: "Maryland, USA" },
   { icon: "💻", label: "B.S. Computer Science" },
   { icon: "🌍", label: "GCSP Scholar" },
+  { icon: "🎖️", label: "CWIT Affiliate" },
+  { icon: "✴", label: "Phi Theta Kappa" },
+  { icon: "👩‍🔬", label: "Researcher" },
 ];
 
 const stats = [
   { value: "4.0", label: "GPA at HCC" },
-  { value: "3+", label: "Research Projects" },
+  { value: "5+", label: "Research Projects" },
   { value: "2", label: "Leadership Roles" },
 ];
 

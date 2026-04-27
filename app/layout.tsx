@@ -31,8 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
 
-
-
 // second layout file which was in portfolio/app/layout.tsx has been ignored as per user instruction
 /*import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";

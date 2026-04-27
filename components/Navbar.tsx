@@ -43,6 +43,7 @@ export default function Navbar() {
             ["GCSP", "/GCSP"],
             ["Skills", "/skills"],
             ["Creative", "/creative"],
+            ["8-D Space", "/immersive"],
             ["Contact", "/contact"],
             ["Resume", "/Resume/Resume.pdf"], 
           ].map(([label, url], i) => (
