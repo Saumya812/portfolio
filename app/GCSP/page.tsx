@@ -1,50 +1,146 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const experiences = [
-  {
-    title: "Broke2Broker — AI-Driven Financial Mentorship",
-    color: "#3b82f6",
-    bg: "rgba(59,130,246,0.07)",
-    border: "rgba(59,130,246,0.25)",
-    icon: "💹",
-    summary:
-      "Developed a platform providing students and young professionals with personalized investment guidance, interactive mentorship, and real-time market insights.",
-    reflection:
-      "I chose Personalized Learning Experience as my Grand Challenge because I believe education is most effective when it adapts to each learner. My project puts this into practice by offering personalized financial plans, interactive tools, and AI-guided lessons to make financial literacy approachable — a skill often missing in traditional education. Working on it taught me that personalization is about empathy: understanding users, making complex ideas clear, and designing for confidence. GCSP inspired me to expand it with adaptive learning and more inclusive content, so it can truly empower people to understand and take control of their finances.",
-  },
-  {
-    title: "BizChat & Other AI Projects",
-    color: "#a855f7",
-    bg: "rgba(168,85,247,0.07)",
-    border: "rgba(168,85,247,0.25)",
-    icon: "🤖",
-    summary:
-      "Built AI-powered business plan assistants, interactive web tools, and educational applications — demonstrating creativity, interdisciplinary problem-solving, and technological innovation.",
-    reflection:
-      "These projects developed research skills, creative thinking, and ethical problem-solving abilities, connecting with GCSP objectives like innovative leadership and self-awareness.",
-  },
-  {
-    title: "Teaching & Curriculum Development",
-    color: "#10b981",
-    bg: "rgba(16,185,129,0.07)",
-    border: "rgba(16,185,129,0.25)",
-    icon: "📚",
-    summary:
-      "Served as a Teaching Fellow and AI/ML curriculum developer, improving student learning experiences and creating structured, interactive educational materials.",
-    reflection:
-      "Enhanced communication, teamwork, and leadership skills, fulfilling GCSP objectives in interdisciplinarity, service, and ethical innovation.",
-  },
-];
-
+// ── PILLAR DATA (from proposals) ──────────────────────────────────────────────
 const gcspPillars = [
-  { title: "Research", icon: "🔬", desc: "Engaged in research addressing a Grand Challenge" },
-  { title: "Interdisciplinary", icon: "🔀", desc: "Bridged technical + social dimensions" },
-  { title: "Entrepreneurship", icon: "🚀", desc: "Innovation thinking applied to GCs" },
-  { title: "Global Dimension", icon: "🌐", desc: "Cross-cultural international perspective" },
-  { title: "Service Learning", icon: "❤️", desc: "Giving back through engineering" },
+  {
+    title: "Research",
+    icon: "🔬",
+    color: "#6366f1",
+    bg: "rgba(99,102,241,0.08)",
+    border: "rgba(99,102,241,0.3)",
+    desc: "Engaged in research addressing a Grand Challenge",
+    experience: {
+      heading: "Post-Quantum Computing Research",
+      subheading: "QuPIDC & AIM-PQC Summer Internships",
+      level: "GOLD — 270+ hours",
+      tieScore: "3 / 3 — Strongly Tied",
+      summary:
+        "My research experience consists of two complementary summer research engagements focused on post-quantum computing and its applications to AI and machine learning systems. The first is a summer research internship with QuPIDC (Quantum and Post-Quantum Innovation in Data and Computing), where I conduct supervised research under Prof. Lei Zhang, investigating how post-quantum cryptographic methods and quantum-informed algorithms can be applied to problems in computing, data security, and AI system design. The second component is a summer internship with AIM-PQC (AI and Machine Learning for Post-Quantum Computing), which situates post-quantum methods within AI/ML systems. Together these experiences provide a gold-level research commitment spanning May–August.",
+      whyLinked:
+        "Post-quantum computing and AI/ML systems are foundational technologies that will shape the future of personalized learning platforms. As personalized learning systems become more sophisticated, they will rely on secure data infrastructure, privacy-preserving AI models, and computationally efficient algorithms — all domains directly addressed by this research.",
+      highlights: [
+        "Submitted a formal research proposal to QuPIDC demonstrating independent initiative",
+        "Working under Prof. Lei Zhang with immersion in quantum/PQC research culture",
+        "Bridging quantum physics, computer science, and mathematics across AIM-PQC & QuPIDC",
+        "Developing skills in formulating research questions, hypotheses, and technical writing",
+        "Engaging with ethics of PQC — cybersecurity, data privacy, and AI reliability implications",
+      ],
+      challenges:
+        "PQC is technically demanding, requiring background in linear algebra, number theory, and cryptography. Managing two simultaneous programs may create scheduling conflicts. Uncertainty inherent in frontier research demands resilience and adaptability.",
+    },
+  },
+  {
+    title: "Interdisciplinary",
+    icon: "🔀",
+    color: "#ec4899",
+    bg: "rgba(236,72,153,0.08)",
+    border: "rgba(236,72,153,0.3)",
+    desc: "Bridged technical + social dimensions",
+    experience: {
+      heading: "Numerical & Experimental Study of 1D Falling Disks",
+      subheading: "Maryland Collegiate STEM Conference 2024 — Harford Community College",
+      level: "GOLD / SILVER — ~168 hours",
+      tieScore: "3 / 3 — Strongly Tied",
+      summary:
+        "This project required bridging three distinct disciplines: classical physics (aerodynamics, drag mechanics, free-fall dynamics), computational mathematics (numerical simulation via MATLAB's ode45 solver), and data science / experimental engineering (sensor automation via PASCO Capstone, statistical analysis in Excel). Neither discipline alone could produce meaningful results — the project's value came from integrating all three into a unified, mutually validating framework. I designed and ran 100+ high-accuracy time-of-flight trials achieving 99% timing accuracy, and developed a calibrated MATLAB model achieving <5% simulation error.",
+      whyLinked:
+        "Although grounded in physics, this project models the kind of inquiry-based, self-directed STEM learning that personalized learning frameworks seek to enable. The computational and data-analysis skills developed (MATLAB, sensor automation, statistical validation) are directly applicable to building and evaluating personalized learning technologies.",
+      highlights: [
+        "100+ experimental trials with 99% timing accuracy using PASCO Capstone sensors",
+        "MATLAB ode45 numerical model achieving <5% error vs. real-world measurements",
+        "Identified 6–11% velocity slowdown attributable to aerodynamic drag",
+        "Presented at Maryland Collegiate STEM Conference 2024 to a multi-disciplinary audience",
+        "Bridging strategy: iterative feedback loop — theory → simulation → experiment → back",
+      ],
+      challenges:
+        "Maintaining experimental precision across 100+ trials, managing the PASCO/MATLAB interface, parameter-tuning ode45 to avoid overfitting, and crafting a narrative accessible across disciplinary backgrounds without sacrificing technical accuracy.",
+    },
+  },
+  {
+    title: "Entrepreneurship",
+    icon: "🚀",
+    color: "#f59e0b",
+    bg: "rgba(245,158,11,0.08)",
+    border: "rgba(245,158,11,0.3)",
+    desc: "Innovation thinking applied to Grand Challenges",
+    experience: {
+      heading: "Budget2Broker — Alex Brown Idea & Innovation Challenge",
+      subheading: "UMBC Fall 2026 — 4th Place, Innovation in Technology Track",
+      level: "GOLD — Listed on GCSP website",
+      tieScore: "2 / 3 — Moderately Tied",
+      summary:
+        "I co-developed and pitched Budget2Broker, a fintech platform designed to improve financial literacy and democratize access to investing tools for underserved and first-time investors. The platform bridges the gap between basic budgeting knowledge and more sophisticated investment strategies. The competition required developing a comprehensive business concept including market research, value proposition, financial modeling, and a polished pitch presentation — earning 4th place for innovation.",
+      whyLinked:
+        "Budget2Broker delivers a personalized learning experience in financial literacy, meeting users where they are and guiding them step-by-step toward greater financial competency — a direct embodiment of the Grand Challenge of Advance Personalized Learning. The Innovation in Technology recognition affirmed the genuine creativity of our approach.",
+      highlights: [
+        "4th place — Innovation in Technology track, Alex Brown Idea & Innovation Challenge",
+        "Developed full business concept: market research, value proposition, financial modeling",
+        "Applied entrepreneurial frameworks to financial exclusion affecting low-income communities",
+        "Practiced pitch communication, distilling complex fintech into a compelling presentation",
+        "Built risk assessment framework covering regulatory, technical, and market adoption risks",
+      ],
+      challenges:
+        "Managing competing academic demands during a busy fall semester, team coordination across different schedules and skill sets, receiving and rapidly implementing critical feedback from judges under time pressure, and developing a viable prototype within competition constraints.",
+    },
+  },
+  {
+    title: "Global Dimension",
+    icon: "🌐",
+    color: "#10b981",
+    bg: "rgba(16,185,129,0.08)",
+    border: "rgba(16,185,129,0.3)",
+    desc: "Cross-cultural international perspective",
+    experience: {
+      heading: "NAE GCSP International Conference — Rome, Italy",
+      subheading: "Represented UMBC at the Annual Grand Challenges Scholars Convening",
+      level: "GOLD — ~168 hours (travel, presentation, conference, networking)",
+      tieScore: "3 / 3 — Strongly Tied",
+      summary:
+        "I traveled to Rome, Italy to attend and present at the international annual conference of the Grand Challenges Scholars Program. The conference provided a unique opportunity to engage with scholars, researchers, and practitioners from across the world working on challenges at the intersection of technology, education, and innovation. I represented UMBC and presented research to an international audience, requiring me to communicate complex technical and pedagogical ideas clearly across cultural and disciplinary boundaries.",
+      whyLinked:
+        "This conference directly engaged with themes of technology, innovation, and education on a global scale — all central to Advance Personalized Learning. Presenting internationally required framing my work across cultural and national contexts, deepening understanding of how personalized learning tools must be designed with global diversity in mind.",
+      highlights: [
+        "Presented research to an international audience at the NAE GCSP global convening",
+        "Engaged with scholars from diverse countries on education, technology, and innovation",
+        "Attended panels and workshops exposing global perspectives on personalized learning",
+        "Navigated cross-cultural communication and professional norms as a linguistic minority",
+        "Strengthened global citizenship: understanding how educational challenges vary by geography",
+      ],
+      challenges:
+        "Logistical and financial barriers (covered by UMBC), language and cultural barriers in informal networking, framing U.S.-specific academic contexts for a global audience, and resilience around visa requirements, travel disruptions, and time-zone adjustment.",
+    },
+  },
+  {
+    title: "Service Learning",
+    icon: "❤️",
+    color: "#ef4444",
+    bg: "rgba(239,68,68,0.08)",
+    border: "rgba(239,68,68,0.3)",
+    desc: "Giving back through engineering",
+    experience: {
+      heading: "AI/ML Curriculum for Maryland Community Colleges",
+      subheading: "In collaboration with Prof. Mark Dencler — Harford Community College",
+      level: "GOLD — ~270 hours",
+      tieScore: "3 / 3 — Strongly Tied",
+      summary:
+        "I am designing and developing a comprehensive AI and Machine Learning course curriculum for community colleges in Maryland, in collaboration with Prof. Mark Dencler at Harford Community College (HCC). This project addresses a significant equity gap: many community college students — disproportionately first-generation, low-income, or career-changing adults — currently lack access to structured, high-quality AI/ML education that could dramatically improve their career prospects. Upon completion, this curriculum will be proposed to the Maryland State Government for adoption across the community college system, potentially reaching thousands of students statewide.",
+      whyLinked:
+        "This is perhaps the most direct embodiment of Advance Personalized Learning of all five GCSP experiences. Developing an AI/ML curriculum for community colleges creates personalized learning pathways at varied knowledge levels for historically underserved populations. Proposing it to the Maryland State Government enables systemic, scalable impact far beyond any single classroom.",
+      highlights: [
+        "Full course design: structure, learning objectives, instructional content, assessments",
+        "Tailored for community college students with varying levels of programming experience",
+        "Proposal submitted to Maryland State Government for statewide adoption",
+        "Supervised by Prof. Mark Dencler with pedagogical and institutional mentorship",
+        "Civic agency: treating student service as meaningful contribution to public education policy",
+      ],
+      challenges:
+        "Complexity of designing a full course requiring deep technical and pedagogical expertise, navigating the institutional/political process of a state government curriculum proposal, time management competing with research and other GCSP commitments, and ensuring the curriculum genuinely serves community college students rather than reproducing the four-year university experience.",
+    },
+  },
 ];
 
 const romeHighlights = [
@@ -57,21 +153,21 @@ const romeHighlights = [
 ];
 
 const romePhotos = [
-  { src: "/images/Pic1.jpeg", alt: "Rome conference", span: "row-span-2" },
-  { src: "/images/Pic2.jpeg", alt: "Vatican City", span: "" },
-  { src: "/images/Pic3.jpeg", alt: "NAE Summit", span: "" },
-  { src: "/images/Pic6.jpeg", alt: "Grand Challenges", span: "col-span-2" },
-  { src: "/images/Pic5.jpeg", alt: "Rome, Italy", span: "" },
-  { src: "/images/Pic4.jpeg", alt: "GCSP Scholars", span: "row-span-2" },
-  { src: "/images/Pic7.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic8.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic9.jpeg", alt: "GCSP Scholars", span: "col-span-2" },
-  { src: "/images/Pic10.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic11.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic12.jpeg", alt: "GCSP Scholars", span: "row-span-2" },
-  { src: "/images/Pic14.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic15.jpeg", alt: "GCSP Scholars", span: "" },
-  { src: "/images/Pic16.jpeg", alt: "GCSP Scholars", span: "row-span-2" },
+  { src: "/images/Pic1.jpeg", alt: "Rome conference" },
+  { src: "/images/Pic2.jpeg", alt: "Vatican City" },
+  { src: "/images/Pic3.jpeg", alt: "NAE Summit" },
+  { src: "/images/Pic6.jpeg", alt: "Grand Challenges" },
+  { src: "/images/Pic5.jpeg", alt: "Rome, Italy" },
+  { src: "/images/Pic4.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic7.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic8.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic9.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic10.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic11.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic12.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic14.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic15.jpeg", alt: "GCSP Scholars" },
+  { src: "/images/Pic16.jpeg", alt: "GCSP Scholars" },
 ];
 
 const floatingOrbs = [
@@ -81,13 +177,125 @@ const floatingOrbs = [
   { size: 150, top: "88%", left: "20%", color: "rgba(59,130,246,0.06)", delay: 1.5 },
 ];
 
+// ── PILLAR DETAIL PANEL ───────────────────────────────────────────────────────
+function PillarDetail({ pillar, onClose }: { pillar: (typeof gcspPillars)[0]; onClose: () => void }) {
+  const exp = pillar.experience;
+  return (
+    <AnimatePresence>
+      <motion.div
+        key="pillar-detail"
+        initial={{ opacity: 0, y: 32 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="mt-6 rounded-3xl overflow-hidden"
+        style={{
+          background: pillar.bg,
+          border: `1.5px solid ${pillar.border}`,
+          boxShadow: `0 16px 48px ${pillar.bg}`,
+        }}
+      >
+        {/* Header bar */}
+        <div
+          className="flex items-center justify-between px-8 py-5"
+          style={{ borderBottom: `1px solid ${pillar.border}` }}
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">{pillar.icon}</span>
+            <div>
+              <p
+                className="text-xs font-bold uppercase tracking-widest mb-0.5"
+                style={{ color: pillar.color }}
+              >
+                {pillar.title} Experience
+              </p>
+              <h3 className="text-lg font-bold text-gray-900 leading-snug">{exp.heading}</h3>
+              <p className="text-sm text-gray-500">{exp.subheading}</p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-white/60 transition-all shrink-0"
+            style={{ border: "1px solid rgba(0,0,0,0.08)" }}
+          >
+            ✕
+          </button>
+        </div>
+
+        <div className="px-8 py-7 space-y-6">
+          {/* Badges */}
+          <div className="flex flex-wrap gap-3">
+            <span
+              className="px-3 py-1 rounded-full text-xs font-bold"
+              style={{ background: `${pillar.color}18`, color: pillar.color, border: `1px solid ${pillar.border}` }}
+            >
+              {exp.level}
+            </span>
+            <span
+              className="px-3 py-1 rounded-full text-xs font-bold"
+              style={{ background: "rgba(107,114,128,0.08)", color: "#6b7280", border: "1px solid rgba(107,114,128,0.2)" }}
+            >
+              GC Tie: {exp.tieScore}
+            </span>
+          </div>
+
+          {/* Summary */}
+          <div>
+            <p className="text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Overview</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{exp.summary}</p>
+          </div>
+
+          {/* Why linked */}
+          <div
+            className="p-5 rounded-2xl"
+            style={{ background: "rgba(255,255,255,0.55)", border: `1px solid ${pillar.border}` }}
+          >
+            <p className="text-xs uppercase tracking-widest font-bold mb-2" style={{ color: pillar.color }}>
+              Connection to Grand Challenge
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed italic">{exp.whyLinked}</p>
+          </div>
+
+          {/* Highlights */}
+          <div>
+            <p className="text-xs uppercase tracking-widest font-bold text-gray-400 mb-3">Key Highlights</p>
+            <ul className="space-y-2">
+              {exp.highlights.map((h, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.07 }}
+                  className="flex items-start gap-3 text-sm text-gray-600"
+                >
+                  <span
+                    className="mt-1.5 w-2 h-2 rounded-full shrink-0"
+                    style={{ background: pillar.color }}
+                  />
+                  {h}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Challenges */}
+          <div className="p-4 rounded-xl" style={{ background: "rgba(0,0,0,0.03)" }}>
+            <p className="text-xs uppercase tracking-widest font-bold text-gray-400 mb-1">Challenges & Growth</p>
+            <p className="text-gray-500 text-sm leading-relaxed">{exp.challenges}</p>
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+// ── MAIN PAGE ─────────────────────────────────────────────────────────────────
 export default function GCSPRomePage() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const spotX = useSpring(mouseX, { stiffness: 70, damping: 18 });
   const spotY = useSpring(mouseY, { stiffness: 70, damping: 18 });
-  const [openExp, setOpenExp] = useState<number | null>(null);
-  const [hoveredPillar, setHoveredPillar] = useState<number | null>(null);
+  const [activePillar, setActivePillar] = useState<number | null>(null);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   useEffect(() => {
@@ -101,7 +309,10 @@ export default function GCSPRomePage() {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "Escape") {
+        setLightbox(null);
+        setActivePillar(null);
+      }
       if (e.key === "ArrowRight" && lightbox !== null)
         setLightbox((lightbox + 1) % romePhotos.length);
       if (e.key === "ArrowLeft" && lightbox !== null)
@@ -111,9 +322,18 @@ export default function GCSPRomePage() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [lightbox]);
 
-  const fadeUp = {
+  // ── FIX: typed as Variants with "as const" on ease ──
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" as const },
+    },
+  };
+
+  const handlePillarClick = (i: number) => {
+    setActivePillar(activePillar === i ? null : i);
   };
 
   return (
@@ -138,7 +358,7 @@ export default function GCSPRomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center"
+          className="fixed inset-0 z-100 flex items-center justify-center"
           style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(8px)" }}
           onClick={() => setLightbox(null)}
         >
@@ -154,7 +374,6 @@ export default function GCSPRomePage() {
               alt={romePhotos[lightbox].alt}
               className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl"
             />
-            {/* Close */}
             <button
               onClick={() => setLightbox(null)}
               className="absolute -top-4 -right-4 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
@@ -162,7 +381,6 @@ export default function GCSPRomePage() {
             >
               ✕
             </button>
-            {/* Prev */}
             <button
               onClick={() => setLightbox((lightbox - 1 + romePhotos.length) % romePhotos.length)}
               className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg"
@@ -170,7 +388,6 @@ export default function GCSPRomePage() {
             >
               ‹
             </button>
-            {/* Next */}
             <button
               onClick={() => setLightbox((lightbox + 1) % romePhotos.length)}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg"
@@ -178,7 +395,6 @@ export default function GCSPRomePage() {
             >
               ›
             </button>
-            {/* Counter */}
             <p className="text-center text-white/50 text-sm mt-3">
               {lightbox + 1} / {romePhotos.length}
             </p>
@@ -238,7 +454,7 @@ export default function GCSPRomePage() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              GCSP 
+              GCSP
             </h1>
 
             <motion.div
@@ -265,7 +481,7 @@ export default function GCSPRomePage() {
             <motion.div
               whileHover={{ scale: 1.03, rotate: 1 }}
               transition={{ type: "spring", stiffness: 150 }}
-              className="md:w-2/5 flex-shrink-0 relative"
+              className="md:w-2/5 shrink-0 relative"
               style={{ maxWidth: 300 }}
             >
               <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-amber-400 z-10" />
@@ -362,7 +578,7 @@ export default function GCSPRomePage() {
             </p>
           </motion.div>
 
-          {/* ── EXPERIENCE & REFLECTION ── */}
+          {/* ── EXPERIENCE & REFLECTION — Five Pillars (clickable) ── */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -373,81 +589,78 @@ export default function GCSPRomePage() {
             <div className="text-center">
               <p className="text-xs uppercase tracking-widest text-pink-500 mb-3 font-semibold">Projects & Impact</p>
               <h2 className="text-4xl font-bold text-gray-900">Experience & Reflection</h2>
+              <p className="text-sm text-gray-400 mt-2">Click a competency to explore the project behind it</p>
             </div>
 
-            <div className="relative">
-              <div
-                className="absolute left-6 top-0 bottom-0 w-0.5"
-                style={{ background: "linear-gradient(180deg, #f59e0b, #ec4899, #7c3aed)" }}
-              />
-              <div className="space-y-6 pl-16">
-                {experiences.map((exp, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.12, duration: 0.6 }}
-                    className="relative"
+            {/* Pillar cards */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {gcspPillars.map((p, i) => (
+                <motion.button
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.6 }}
+                  whileHover={{ y: -6, scale: 1.04 }}
+                  onClick={() => handlePillarClick(i)}
+                  className="p-5 rounded-2xl text-center cursor-pointer relative"
+                  style={{
+                    background: activePillar === i ? p.bg : "rgba(255,255,255,0.55)",
+                    backdropFilter: "blur(16px)",
+                    border: activePillar === i ? `1.5px solid ${p.border}` : "1px solid rgba(255,255,255,0.5)",
+                    boxShadow: activePillar === i ? `0 8px 32px ${p.bg}` : "none",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  {activePillar === i && (
+                    <motion.div
+                      layoutId="pillar-active"
+                      className="absolute inset-0 rounded-2xl"
+                      style={{ background: p.bg, border: `1.5px solid ${p.border}` }}
+                    />
+                  )}
+                  <span className="text-2xl block mb-3 relative z-10">{p.icon}</span>
+                  <h3
+                    className="text-sm font-bold mb-1 relative z-10"
+                    style={{ color: activePillar === i ? p.color : "#111827" }}
                   >
+                    {p.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 leading-snug relative z-10">{p.desc}</p>
+                  {/* Active indicator dot */}
+                  {activePillar === i && (
                     <motion.div
-                      className="absolute -left-10 top-5 w-5 h-5 rounded-full border-2 border-white shadow-md flex items-center justify-center"
-                      style={{ background: exp.color }}
-                      animate={openExp === i ? { scale: 1.4 } : { scale: 1 }}
-                      transition={{ type: "spring" }}
-                    >
-                      <div className="w-2 h-2 bg-white rounded-full" />
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ x: 4 }}
-                      onClick={() => setOpenExp(openExp === i ? null : i)}
-                      className="cursor-pointer rounded-2xl p-6 transition-all duration-300"
-                      style={{
-                        background: openExp === i ? exp.bg : "rgba(255,255,255,0.55)",
-                        backdropFilter: "blur(16px)",
-                        border: openExp === i ? `1px solid ${exp.border}` : "1px solid rgba(255,255,255,0.5)",
-                        boxShadow: openExp === i ? `0 12px 40px ${exp.bg}` : "none",
-                      }}
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-3">
-                          <span className="text-xl flex-shrink-0">{exp.icon}</span>
-                          <h3 className="text-base font-bold text-gray-900">{exp.title}</h3>
-                        </div>
-                        <motion.span
-                          animate={{ rotate: openExp === i ? 180 : 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="text-gray-400 flex-shrink-0 text-sm"
-                        >
-                          ▾
-                        </motion.span>
-                      </div>
-
-                      <motion.div
-                        initial={false}
-                        animate={{ height: openExp === i ? "auto" : 0, opacity: openExp === i ? 1 : 0 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                        style={{ overflow: "hidden" }}
-                      >
-                        <div
-                          className="mt-4 pt-4 space-y-3"
-                          style={{ borderTop: `1px solid ${exp.border}` }}
-                        >
-                          <p className="text-sm text-gray-600 leading-relaxed">{exp.summary}</p>
-                          <p
-                            className="text-sm text-gray-500 leading-relaxed italic"
-                            style={{ borderLeft: `3px solid ${exp.color}`, paddingLeft: "12px" }}
-                          >
-                            {exp.reflection}
-                          </p>
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full border-2 border-white shadow-sm"
+                      style={{ background: p.color }}
+                    />
+                  )}
+                </motion.button>
+              ))}
             </div>
+
+            {/* Pillar detail panel */}
+            <AnimatePresence mode="wait">
+              {activePillar !== null && (
+                <PillarDetail
+                  key={activePillar}
+                  pillar={gcspPillars[activePillar]}
+                  onClose={() => setActivePillar(null)}
+                />
+              )}
+            </AnimatePresence>
+
+            {/* Empty state hint */}
+            {activePillar === null && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center text-sm text-gray-300 italic"
+              >
+                ↑ Select any of the five GCSP competencies above to explore that project
+              </motion.p>
+            )}
           </motion.div>
 
           {/* ── ROME DIVIDER ── */}
@@ -466,46 +679,6 @@ export default function GCSPRomePage() {
             </div>
             <span className="text-2xl">✈️</span>
             <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, rgba(236,72,153,0.4), transparent)" }} />
-          </motion.div>
-
-          {/* ── FIVE PILLARS ── */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="text-center">
-              <p className="text-xs uppercase tracking-widest text-amber-600 mb-3 font-semibold">Program competencies</p>
-              <h2 className="text-4xl font-bold text-gray-900">The Five Pillars</h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              {gcspPillars.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.6 }}
-                  whileHover={{ y: -6, scale: 1.04 }}
-                  onHoverStart={() => setHoveredPillar(i)}
-                  onHoverEnd={() => setHoveredPillar(null)}
-                  className="p-5 rounded-2xl text-center cursor-default"
-                  style={{
-                    background: hoveredPillar === i ? "rgba(251,191,36,0.1)" : "rgba(255,255,255,0.55)",
-                    backdropFilter: "blur(16px)",
-                    border: hoveredPillar === i ? "1px solid rgba(251,191,36,0.4)" : "1px solid rgba(255,255,255,0.5)",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <span className="text-2xl block mb-3">{p.icon}</span>
-                  <h3 className="text-sm font-bold text-gray-900 mb-1">{p.title}</h3>
-                  <p className="text-xs text-gray-500 leading-snug">{p.desc}</p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           {/* ── ROME HIGHLIGHTS ── */}
@@ -537,7 +710,7 @@ export default function GCSPRomePage() {
                     border: "1px solid rgba(255,255,255,0.5)",
                   }}
                 >
-                  <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
+                  <span className="text-2xl shrink-0 mt-0.5">{item.icon}</span>
                   <div>
                     <h3 className="text-sm font-bold text-gray-900 mb-1">{item.label}</h3>
                     <p className="text-xs text-gray-500">{item.desc}</p>
@@ -561,14 +734,7 @@ export default function GCSPRomePage() {
               <p className="text-sm text-gray-400 mt-2">Click any photo to view full size</p>
             </div>
 
-            {/* Masonry-style collage using CSS columns */}
-            <div
-              style={{
-                columns: "3",
-                columnGap: "12px",
-              }}
-              className="[&>*]:break-inside-avoid"
-            >
+            <div style={{ columns: "3", columnGap: "12px" }} className="[&>*]:break-inside-avoid">
               {romePhotos.map((photo, i) => (
                 <motion.div
                   key={i}
@@ -592,14 +758,12 @@ export default function GCSPRomePage() {
                       (e.target as HTMLImageElement).closest("div")!.style.display = "none";
                     }}
                   />
-                  {/* Hover overlay */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                     style={{ background: "rgba(0,0,0,0.3)" }}
                   >
                     <span className="text-white text-2xl">🔍</span>
                   </div>
-                  {/* Gradient shimmer at bottom */}
                   <div
                     className="absolute bottom-0 left-0 right-0 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.4))" }}
