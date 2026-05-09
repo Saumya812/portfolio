@@ -45,7 +45,7 @@ export default function Navbar() {
             ["Creative", "/creative"],
             ["8-D Space", "/immersive"],
             ["Contact", "/contact"],
-            ["Resume", "/Resume/Resume.pdf"], 
+            ["Resume", "/Resume/RESUME.pdf"], 
           ].map(([label, url], i) => (
             <Link
               key={i}
